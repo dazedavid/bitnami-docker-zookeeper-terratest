@@ -9,13 +9,12 @@ pipeline {
       stage ('Preparing the Environment') {
          steps {
             script {
-               def tfHome = 'Go'
-               def jdk = tool 'jdk8'
-               env.PATH = "${tfHome}:${env.PATH}"
+               def root = tool name: 'Go 1.8', type: 'go'
+               withEnv(["GOROOT=${root}", "PATH+GO=${root}/bin"]) {
+               sh 'go version'
+               }
             }
-            sh 'go version'
          }
       }   
-      
    } 
 }
