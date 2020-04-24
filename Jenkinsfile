@@ -12,8 +12,7 @@ pipeline {
                def root = tool name: 'Go'
                withEnv(["GOROOT=${root}", "PATH+GO=${root}/bin"]) {
                sh 'go version'
-               sh 'cd test'
-               sh 'go mod init "github.com/gruntwork-io/terratest/tree/master/modules"'  
+               sh 'cd test'  
                sh 'go test -v -tags kubernetes -run TestKubernetes'
                }
             }
