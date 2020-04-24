@@ -11,9 +11,14 @@ import (
 
 func TestKubernetes(t *testing.T) {
 
+	namespaceName := "zookeeper"
 	kubeResourcePath := "../kubernetes.yml"
-	options := k8s.NewKubectlOptions("", "", "david")
-	defer k8s.DeleteNamespace(t, options, "david")
+
+	options := k8s.NewKubectlOptions("", "", namespaceName)
+
+	k8s.CreateNamespace(t, options, namespaceName)
+	defer k8s.DeleteNamespace(t, options, namespaceName)
+
 	defer k8s.KubectlDelete(t, options, kubeResourcePath)
 	k8s.KubectlApply(t, options, kubeResourcePath)
 	k8s.WaitUntilServiceAvailable(t, options, "zookeeper", 10, 5*time.Second)
