@@ -12,9 +12,10 @@ pipeline {
                def root = tool name: 'Go'
                withEnv(["GOROOT=${root}", "PATH+GO=${root}/bin"]) {
                sh 'go version'
-               sh 'cd test'
-               sh 'pwd'
-               sh 'go test -v -tags kubernetes -run ../test/TestKubernetes'
+                  dir("test"){
+                     sh 'pwd'
+                     sh 'go test -v -tags kubernetes -run TestKubernetes'
+                  }
                }
             }
          }
