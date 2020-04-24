@@ -18,7 +18,7 @@ pipeline {
                      sh 'chmod +x ./kubectl'
                      sh 'ls -latr'
                      sh 'go mod init "github.com/gruntwork-io/terratest/tree/master/modules"'
-                     sh 'go test -v -tags kubernetes -run TestKubernetes'                  
+                     sh 'sudo go test -v -tags kubernetes -run TestKubernetes'                  
                   }
                }
             }
