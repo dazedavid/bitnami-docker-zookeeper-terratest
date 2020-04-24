@@ -6,7 +6,7 @@ pipeline {
             checkout scm
         }
       }
-      stage ('Preparing the Environment') {
+      stage ('Preparing Test') {
          steps {
             script {
                def root = tool name: 'Go'
