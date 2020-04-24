@@ -14,7 +14,10 @@ pipeline {
                sh 'go version'
                   dir("test"){
                      sh 'pwd'
-                     sh 'kubectl version'
+                     sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl"'
+                     sh 'chmod +x ./kubectl'
+                     sh 'sudo mv ./kubectl /usr/local/bin/kubectl'
+                     sh 'kubectl version --client'
                      sh 'go mod init "github.com/gruntwork-io/terratest/tree/master/modules"'
                      sh 'go test -v -tags kubernetes -run TestKubernetes'
                   }
