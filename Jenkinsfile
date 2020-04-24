@@ -14,6 +14,7 @@ pipeline {
                sh 'go version'
                   dir("test"){
                      sh 'pwd'
+                     sh 'go mod init "https://github.com/gruntwork-io/terratest/tree/master/modules"'
                      sh 'go test -v -tags kubernetes -run TestKubernetes'
                   }
                }
