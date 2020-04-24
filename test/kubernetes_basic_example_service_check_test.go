@@ -12,7 +12,7 @@ import (
 
 func TestKubernetes(t *testing.T) {
 	namespaceName := "david"
-	kubeResourcePath := "../kubernetes.yaml"
+	kubeResourcePath := "../kubernetes.yml"
 	options := k8s.NewKubectlOptions("", "", namespaceName)
 
 	k8s.CreateNamespace(t, options, namespaceName)
