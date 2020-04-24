@@ -9,7 +9,7 @@ pipeline {
       stage ('Preparing the Environment') {
          steps {
             script {
-               def tfHome = tool 'Go'
+               def tfHome = 'Go'
                def jdk = tool 'jdk8'
                env.PATH = "${tfHome}:${env.PATH}"
             }
