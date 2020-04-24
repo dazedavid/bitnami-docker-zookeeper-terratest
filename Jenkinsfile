@@ -14,7 +14,7 @@ pipeline {
                sh 'go version'
                sh 'cd test'
                sh 'pwd'
-               sh 'go test -v -tags kubernetes -run TestKubernetes'
+               sh 'go test -v -tags kubernetes -run ../test/TestKubernetes'
                }
             }
          }
