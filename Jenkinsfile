@@ -29,21 +29,21 @@ pipeline {
             }
          }
       }   
-      stage ('Applying after Success') {
-        steps { 
-          script {
-            withKubeConfig([
-                credentialsId: 'jenkins-robot',
-                caCertificate: '',
-                serverUrl: 'https://172.31.33.66:8443',
-                contextName: '',
-                clusterName: '',
-                namespace: ''
-                ]) {
-                   sh 'kubectl apply -f kubernetes.yml'
-                  }
-            }        
-         }
-      }          
+      //stage ('Applying after Success') {
+        //steps { 
+         // script {
+           // withKubeConfig([
+             //   credentialsId: 'jenkins-robot',
+               // caCertificate: '',
+                //serverUrl: 'https://172.31.33.66:8443',
+                //contextName: '',
+                //clusterName: '',
+                //namespace: ''
+               // ]) {
+                 //  sh 'kubectl apply -f kubernetes.yml'
+                //  }
+           // }        
+        // }
+      //}          
    }
 }
