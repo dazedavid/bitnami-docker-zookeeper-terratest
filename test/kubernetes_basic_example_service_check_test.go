@@ -11,13 +11,13 @@ import (
 )
 
 func TestKubernetes(t *testing.T) {
-	namespaceName := "david"
+	namespaceName := "default"
 	kubeResourcePath := "../kubernetes.yml"
 	options := k8s.NewKubectlOptions("", "", namespaceName)
 
-	k8s.CreateNamespace(t, options, namespaceName)
+	//k8s.CreateNamespace(t, options, namespaceName)
 
-	defer k8s.DeleteNamespace(t, options, namespaceName)
+	//defer k8s.DeleteNamespace(t, options, namespaceName)
 	defer k8s.KubectlDelete(t, options, kubeResourcePath)
 
 	k8s.KubectlApply(t, options, kubeResourcePath)
