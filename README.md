@@ -1,6 +1,6 @@
 #######zookeeper Takes care of Qurom#########
 #############################################
-#############################################
+
 # What is ZooKeeper?
 
 >ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. All of these kinds of services are used in some form or other by distributed applications.
